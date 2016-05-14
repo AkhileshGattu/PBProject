@@ -18,26 +18,31 @@ object count {
     //val query1 = sqlContext.sql("select user.name, count(user.followers_count) as followersCount from querytable1 group by user.name order by followersCount desc limit 20")
     //query1.show()
 
+    //piechart
     //val query1 = sqlContext.sql("select SUBSTRING(user.name,0,5), count(user.followers_count) as followersCount from querytable1 group by user.name order by followersCount desc limit 20")
     //query1.show()
     //query1.save("query1","json")
 
+    //waterfall
     //val query2 = sqlContext.sql("select count(*) as cnt,retweeted_status.user.screen_name as name from querytable1 where retweeted_status.user.screen_name is not NULL group by retweeted_status.user.screen_name order by cnt desc limit 10")
     //query2.show()
     //query2.save("query2","json")
 
-    //val query3 = sqlContext.sql("select  user.lang as language, count(*) as cnt from querytable1 where user.lang is not NULL group by user.lang order by cnt desc limit 10")
-    //query3.show()
-    //query3.save("query3", "json")
+    //Donut chart
+    val query3 = sqlContext.sql("select  user.lang as language, count(*) as cnt from querytable1 where user.lang is not NULL group by user.lang order by cnt desc limit 10")
+    query3.show()
+    query3.save("query3", "json")
 
-    val query4 = sqlContext.sql("select place.country_code as location,count(*) as cnt from querytable1 where place.country_code is not NULL and text like '%virat%' or text like '%kohli%' group by place.country_code order by cnt desc limit 10")
-    query4.show()
-    query4.save("query4","json")
+    //Maps
+    //val query4 = sqlContext.sql("select place.country_code as location,count(*) as cnt from querytable1 where place.country_code is not NULL and text like '%virat%' or text like '%kohli%' group by place.country_code order by cnt desc limit 10")
+    //query4.show()
+    //query4.save("query4","json")
 /*
     val query5 = sqlContext.sql("SELECT source, count(*) as cnt FROM querytable1 WHERE source is not NULL and (user.verified OR NOT user.verified) GROUP BY source ORDER BY cnt DESC")
     query5.show()
     query5.save("query5","json")
 */
+    //barchart
     //val query5 = sqlContext.sql("select user.name as name, retweeted_status.retweet_count as cnt from querytable1 where user.name is not NULL order by cnt desc limit 10")
     //query5.show()
     //query5.save("query5","json")
@@ -47,10 +52,12 @@ object count {
     //query6.save("query6","json")
 */
 
+    //Line graph
     //val query6 = sqlContext.sql("select possibly_sensitive as sensitive,count(*) from querytable1 group by possibly_sensitive limit 3")
     //query6.show()
     //query6.save("query6","json")
 
+    //Stepped graph
     //val query7 = sqlContext.sql("select substr(created_at,0,10) as time, count(*) as cnt from querytable1 where created_at is not NULL group by substr(created_at,0,10) order by cnt desc limit 10")
     //query7.show()
     //query7.save("query7","json")
@@ -59,6 +66,7 @@ object count {
     query8.show()
     query8.save("query8","json")
 */
+    //Bubble graph
     //val query8 = sqlContext.sql("select user.time_zone as time, count(*) as cnt from querytable1 where user.time_zone is not NULL group by user.time_zone order by cnt desc limit 10")
     //query8.show()
     //query8.save("query8","json")
